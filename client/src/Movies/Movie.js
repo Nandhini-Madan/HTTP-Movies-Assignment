@@ -33,7 +33,7 @@ function Movie({ addToSavedList }) {
     .then((res)=>{
       //setting result data to movie
       setMovie(res.data);
-      push("/")
+      push(`/movies`)
     })
   };
 

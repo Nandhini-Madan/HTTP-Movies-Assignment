@@ -66,6 +66,19 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
+.baseline,
+input {
+  background-color: #fff;
+  font-size: 21px;
+  height: 50px;
+  width: 300px;
+  padding: 0 8px;
+  color: #1c5d76;
+}
+.baseline {
+  height: 3px;
+  background-color: #dcdcdc;
+}
 .update-button {
 
   position: relative;
