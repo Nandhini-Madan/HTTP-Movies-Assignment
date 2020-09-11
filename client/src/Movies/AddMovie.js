@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import MovieList from "./MovieList";
@@ -15,7 +15,8 @@ const UpdateMovie = (props) => {
     const { push } = useHistory();
     const [movie, setMovie] = useState(initialMovie);
     const { id } = useParams();
-    useEffect(() => {
+ 
+ /*   useEffect(() => {
         axios
             .get(`http://localhost:5000/api/movies/${id}`)
             .then((res) => {
@@ -24,7 +25,7 @@ const UpdateMovie = (props) => {
             })
             .catch((err) => console.log(err));
     }, [id]);
-
+*/
     const changeHandler = (ev) => {
         ev.persist();
         let value = ev.target.value;
@@ -37,12 +38,12 @@ const UpdateMovie = (props) => {
         e.preventDefault();
         //Put request for editting
         axios
-            .put(`http://localhost:5000/api/movies/${id}`, movie)
+            .post(`http://localhost:5000/api/movies/`, movie)
             .then((res) => {
                 console.log("resu",res.data)
                 props.setMovieList(res.data);
-             //  props.setMovieList(res.data);
-                push(`/movies/${id}`);
+           
+                push(`/`);
 
             })
             .catch((err) => {
@@ -52,7 +53,7 @@ const UpdateMovie = (props) => {
     };
     return (
         <div>
-            <h2>Update Movie</h2>
+            <h2>Add Movie</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
